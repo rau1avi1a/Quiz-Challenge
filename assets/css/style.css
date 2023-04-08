@@ -1,0 +1,48 @@
+body {
+    background-color: lavender;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px;
+    font-size: 18px;
+}
+
+main div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2;
+    padding: 10%;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10%;
+    line-height: 2;
+}
+
+.hide {
+    display: none;
+}
+
+.showCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2;
+    padding: 10%;
+}
+
+.showIndented {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10%;
+    line-height: 2;
+}
