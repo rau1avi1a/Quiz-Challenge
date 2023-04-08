@@ -14,7 +14,7 @@
     <!--This will set the top corners-->
     <nav>
         <h3>View Highscores</h3>
-        <h3>Time: 60</h3>
+        <h4>Time: <span class="timer">120</span></h4>
     </nav>
 
     
@@ -23,18 +23,27 @@
         <!--This will be the start screen-->
         <div class="showCenter">
             <h1>Welcome to the most challenging quiz ever (99.7% FAIL)</h1>
-            <p>This quiz wil test your knowledge, you will have 20 minutes to complete.</p>
+            <p>This quiz wil test your knowledge, you will have 2 minutes to complete.</p>
+            <button class="startButton">Start</button>
         </div>
         
         <!--This will be the main section where questions appear-->
         <section class="showIndented">
             <h2>Question 1</h2>
-            <ol>
-                <li>answer 1 </li>
-                <li>answer 2 </li>
-                <li>answer 3 </li>
-                <li>answer 4 </li>
-            </ol>
+            <ul>
+                <li>
+                    <button class="choiceButton">answer 1</button>
+                </li>
+                <li>
+                    <button class="choiceButton">answer 2</button>
+                </li>
+                <li>
+                    <button class="choiceButton">answer 3</button>
+                </li>
+                <li>
+                    <button class="choiceButton">ye</button>
+                </li>
+            </ul>
         </section>
 
         <!--This will ask for initials to display in score board-->
@@ -52,6 +61,7 @@
                 <li>RA - 12</li>
                 <li>MB - 13</li>
             </ol>
+            <button class="backButton">Go Back</button>
         </div>
 
     </main>

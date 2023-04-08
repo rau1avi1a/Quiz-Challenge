@@ -1,8 +1,10 @@
+/*Global style*/
 body {
     background-color: lavender;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/*top corners*/
 nav {
     display: flex;
     flex-direction: row;
@@ -11,6 +13,7 @@ nav {
     font-size: 18px;
 }
 
+/*style for main sections*/
 main div{
     display: flex;
     flex-direction: column;
@@ -19,6 +22,22 @@ main div{
     padding: 10%;
 }
 
+div h1 {
+    font-size: 1.8em;
+}
+
+div p {
+    font-size: 1.2em;
+}
+
+div ol {
+    background: #e2d7ff;
+    border-radius: 8px;
+    border: 10px black;
+    padding: 2px 10px;
+}
+
+/*style for questions section*/
 main section {
     display: flex;
     flex-direction: column;
@@ -27,6 +46,7 @@ main section {
     line-height: 2;
 }
 
+/*Classes*/
 .hide {
     display: none;
 }
@@ -45,4 +65,56 @@ main section {
     align-items: flex-start;
     padding: 10%;
     line-height: 2;
+}
+
+.startButton {
+    background: radial-gradient(circle, rgb(181, 169, 255) 0%, rgba(129, 61, 239, 0.954) 100%);
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 2em;
+    letter-spacing: 0.21px;
+    line-height: 16px;
+    max-width: 255px;
+    padding: 20px 52px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
+}
+
+.choiceButton {
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.954) 100%);
+    border-radius: 10px;
+    color: #1b132f;
+    cursor: pointer;
+    font-size: 1.2em;
+    letter-spacing: 0.21px;
+    line-height: 1.2em;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 12px 20px;
+    text-align: left;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
+}
+
+.backButton {
+    background: radial-gradient(circle, rgb(181, 169, 255) 0%, rgba(129, 61, 239, 0.954) 100%);
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.4em;
+    letter-spacing: 0.21px;
+    line-height: 16px;
+    max-width: 100%;
+    padding: 10px 26px;
+    text-align: center;
+    transition-duration: 0.15s;
+    transition-property: background-color;
+    transition-timing-function: linear;
+    margin-top: 0.6em;
 }
