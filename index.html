@@ -12,8 +12,8 @@
 <body>
 
     <!--This will set the top corners-->
-    <nav>
-        <h3>View Highscores</h3>
+    <nav class="container">
+        <h3 class="viewScores">View Highscores</h3>
         <h4>Time: <span class="timer">120</span></h4>
     </nav>
 
@@ -21,14 +21,14 @@
 
     <main>
         <!--This will be the start screen-->
-        <div class="showCenter">
+        <div class="startScreen showCenter">
             <h1>Welcome to the most challenging quiz ever (99.7% FAIL)</h1>
             <p>This quiz wil test your knowledge, you will have 2 minutes to complete.</p>
             <button class="startButton">Start</button>
         </div>
         
         <!--This will be the main section where questions appear-->
-        <section class="showIndented">
+        <section class="questionScreen hide">
             <h2>Question 1</h2>
             <ul>
                 <li>
@@ -44,10 +44,11 @@
                     <button class="choiceButton">ye</button>
                 </li>
             </ul>
+            <p>Wrong answer</p>
         </section>
 
         <!--This will ask for initials to display in score board-->
-        <div class="showCenter">
+        <div class="scoreScreen hide">
             <h1>All done!</h1>
             <p>Your score was: 12</p>
             <label for="scoreInitials">Enter your initials:</label>
@@ -55,7 +56,7 @@
         </div>
 
         <!--This will display the Highscores-->
-        <div class="showCenter">
+        <div class="scoreBoardScreen hide">
             <h1>Highscores</h1>
             <ol>
                 <li>RA - 12</li>
@@ -65,5 +66,6 @@
         </div>
 
     </main>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

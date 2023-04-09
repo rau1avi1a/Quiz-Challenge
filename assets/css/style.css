@@ -46,6 +46,10 @@ main section {
     line-height: 2;
 }
 
+section p {
+    color: #7a7a7a;
+}
+
 /*Classes*/
 .hide {
     display: none;
