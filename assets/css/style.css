@@ -46,6 +46,10 @@ main section {
     line-height: 2;
 }
 
+section h2 {
+    font-size: 1.6em;
+}
+
 section p {
     color: #7a7a7a;
 }
@@ -69,6 +73,14 @@ section p {
     align-items: flex-start;
     padding: 10%;
     line-height: 2;
+}
+
+.viewScores {
+    cursor: pointer;
+}
+
+.viewScores:hover {
+    color: #311b89;
 }
 
 .startButton {
@@ -104,6 +116,11 @@ section p {
     transition-property: background-color;
     transition-timing-function: linear;
     margin-top: 0.6em;
+}
+
+.choiceButton:hover {
+    background: #cdcdcd;
+    color: #000000;
 }
 
 .backButton {
