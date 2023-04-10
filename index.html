@@ -28,20 +28,40 @@
         </div>
         
         <!--This will be the main section where questions appear-->
-        <section class="questionScreen hide">
-            <h2 id="question"></h2>
+        <!--Question 1-->
+        <section class="questionScreen1 hide">
+            <h2 id="question">Question 1</h2>
             <ul>
                 <li>
-                    <button id="answer1" class="choiceButton"></button>
+                    <button id="answerCorrect" class="choiceButton">right</button>
                 </li>
                 <li>
-                    <button id="answer2" class="choiceButton"></button>
+                    <button id="answerWrong" class="choiceButton">wrong</button>
                 </li>
                 <li>
-                    <button id="answer3" class="choiceButton"></button>
+                    <button id="answerWrong" class="choiceButton">wrong</button>
                 </li>
                 <li>
-                    <button id="answer4" class="choiceButton"></button>
+                    <button id="answerWrong" class="choiceButton">wrong</button>
+                </li>
+            </ul>
+            <p id="wrong">Wrong answer</p> 
+        </section>
+        <!--Question 2-->
+        <section class="questionScreen2 hide">
+            <h2 id="question">Question 2</h2>
+            <ul>
+                <li>
+                    <button id="answerWrong" class="choiceButton">wrong</button>
+                </li>
+                <li>
+                    <button id="answerCorrect" class="choiceButton">wrong</button>
+                </li>
+                <li>
+                    <button id="answerWrong" class="choiceButton">wrong</button>
+                </li>
+                <li>
+                    <button id="answerWrong" class="choiceButton">wrong</button>
                 </li>
             </ul>
             <p id="wrong">Wrong answer</p> 
@@ -52,8 +72,8 @@
             <h1>All done!</h1>
             <p>Your score was: 12</p>
             <form id="scoreSubmit" method="POST">
-                <label for="scoreInitials">Enter your initials:</label>
-                <input type="text" placeholder="Initials" name="scoreInitials" id="scoreInitials">
+                <label for="name">Enter your initials:</label>
+                <input type="text" placeholder="Initials" name="name" id="name">
             </form>
         </div>
 

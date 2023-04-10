@@ -139,3 +139,9 @@ section p {
     transition-timing-function: linear;
     margin-top: 0.6em;
 }
+
+/*id*/
+#highscores {
+    display: flex;
+    flex-direction: column;
+}
