@@ -45,7 +45,6 @@ function startQuiz() {
     //Starts timer
     //starts questions
     questionScreen1.setAttribute("class","showIndented");
-    quiz();
     startTimer();
 }
 
@@ -67,15 +66,9 @@ function startTimer() {
 
 //quiz
 function quiz (event) {
-    if (choiceButton.contains(answerCorrect)) {
-        score++;
-    } 
-    if (choiceButton.contains(answerWrong)) {
-        timerCount-10;
-        timerElement.textContent = timerCount;
-    }
-
-
+score++;
+questionScreen1.setAttribute("class", "hide");
+questionScreen2.setAttribute("class", "showIndented");
 }
 
 //This function ends the quiz
