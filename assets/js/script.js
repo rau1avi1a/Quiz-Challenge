@@ -76,6 +76,11 @@ function startTimer() {
 
 //This function ends the quiz
 function endQuiz() {
+    clearInterval(timer);
+    if (timerCount < 0) {
+        timerCount = 0;
+        timerElement.textContent = timerCount;
+    }
     quizCount = 0;
     quizScreen.setAttribute("class", "hide");
     scoreTrack.textContent = score;
@@ -140,6 +145,8 @@ function goBack() {
     scoreBoardScreen.setAttribute("class", "hide");
     startScreen.setAttribute("class", "showCenter");
     viewHighscores = true;
+    timerCount = 120;
+    timerElement.textContent = timerCount;
 }
 
 //This function lets user view scoreboard
@@ -148,6 +155,35 @@ function viewScoreBoard (event) {
     if (viewHighscores == true) {
         startScreen.setAttribute("class", "hide");
         scoreBoardScreen.setAttribute("class", "showCenter");
+    }
+}
+
+//This is the quiz content
+function quiz() {
+    if (timerCount > 0) {
+        quizScreen.setAttribute("class", "showIndented");
+        if (quizCount == 0) {
+            questionScreen1.setAttribute("class", "showIndented");
+        }
+        else if (quizCount == 1) {
+            questionScreen1.setAttribute("class", "hide");
+            questionScreen2.setAttribute("class", "showIndented");
+        }
+        else if (quizCount == 2) {
+            questionScreen2.setAttribute("class", "hide");
+            questionScreen3.setAttribute("class", "showIndented");
+        }
+        else if (quizCount == 3) {
+            questionScreen3.setAttribute("class", "hide");
+            questionScreen4.setAttribute("class", "showIndented");
+        }
+        else if (quizCount == 4) {
+            questionScreen4.setAttribute("class", "hide");
+            endQuiz();
+        }
+    } 
+    else {
+        quizScreen.setAttribute("class", "hide");
     }
 }
 
@@ -166,13 +202,7 @@ backButton.addEventListener("click", goBack);
 //Submits initials to scoreboard
 scoreSubmit.addEventListener("submit", submitQuiz);
 
-
 let test = [1,2,3,4,5,6,7,8,9,10];
-let testAnswers = {
-    correct: answerCorrect,
-    wrong: answerWrong
-};
-
 //Selects answer and keeps score
 for (let i = 0; i < choiceButton.length; i++) {
     choiceButton[i].addEventListener("click", function () {
@@ -183,38 +213,11 @@ for (let i = 0; i < choiceButton.length; i++) {
         }
         if (choiceButton[i].classList.contains("answerWrong")) {
             quizCount++;
-            timerCount = timerCount - 30;
+            timerCount = timerCount - 20;
         }
         console.log(test[i]);
 });
     choiceButton[i].addEventListener("click", quiz);
-}
-
-function quiz() {
-    if (timerCount > 0) {
-        quizScreen.setAttribute("class", "showIndented");
-        if (quizCount == 0) {
-            questionScreen1.setAttribute("class", "showIndented");
-        }
-        if (quizCount == 1) {
-            questionScreen1.setAttribute("class", "hide");
-            questionScreen2.setAttribute("class", "showIndented");
-        }
-        if (quizCount == 2) {
-            questionScreen2.setAttribute("class", "hide");
-            questionScreen3.setAttribute("class", "showIndented");
-        }
-        if (quizCount == 3) {
-            questionScreen3.setAttribute("class", "hide");
-            questionScreen4.setAttribute("class", "showIndented");
-        }
-        if (quizCount == 4) {
-            endQuiz();
-        }
-    } 
-    else {
-        quizScreen.setAttribute("class", "hide");
-    }
 }
 
 init();
