@@ -28,49 +28,89 @@
         </div>
         
         <!--This will be the main section where questions appear-->
-        <!--Question 1-->
-        <section class="questionScreen1 hide">
-            <h2 id="question">Question 1</h2>
-            <ul>
-                <li>
-                    <button id="answerCorrect" class="choiceButton">right</button>
-                </li>
-                <li>
-                    <button id="answerWrong" class="choiceButton">wrong</button>
-                </li>
-                <li>
-                    <button id="answerWrong" class="choiceButton">wrong</button>
-                </li>
-                <li>
-                    <button id="answerWrong" class="choiceButton">wrong</button>
-                </li>
-            </ul>
-            <p id="wrong">Wrong answer</p> 
-        </section>
-        <!--Question 2-->
-        <section class="questionScreen2 hide">
-            <h2 id="question">Question 2</h2>
-            <ul>
-                <li>
-                    <button id="answerWrong" class="choiceButton">wrong</button>
-                </li>
-                <li>
-                    <button id="answerCorrect" class="choiceButton">right</button>
-                </li>
-                <li>
-                    <button id="answerWrong" class="choiceButton">wrong</button>
-                </li>
-                <li>
-                    <button id="answerWrong" class="choiceButton">wrong</button>
-                </li>
-            </ul>
-            <p id="wrong">Wrong answer</p> 
-        </section>
+        <div class="allQuestions hide">
+            <!--Question 1-->
+            <section class="questionScreen1">
+                <h2 id="question">What is my favorite color?</h2>
+                <ul>
+                    <li>
+                        <button class="choiceButton answerCorrect">black</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">blue</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">green</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">yellow</button>
+                    </li>
+                </ul>
+                <p id="wrong" class="hide">Wrong answer</p> 
+            </section>
+            <!--Question 2-->
+            <section class="questionScreen2 hide">
+                <h2 id="question">Question 2</h2>
+                <ul>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerCorrect">right</button>
+                    </li>
+                </ul>
+                <p id="wrong" class="hide">Wrong answer</p> 
+            </section>
+            <!--Question 3-->
+            <section class="questionScreen3 hide">
+                <h2 id="question">Question 3</h2>
+                <ul>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerCorrect">right</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                </ul>
+                <p id="wrong" class="hide">Wrong answer</p> 
+            </section>
+            <!--Question 4-->
+            <section class="questionScreen4 hide">
+                <h2 id="question">Question 4</h2>
+                <ul>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerCorrect">right</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                    <li>
+                        <button class="choiceButton answerWrong">wrong</button>
+                    </li>
+                </ul>
+                <p id="wrong" class="hide">Wrong answer</p> 
+            </section>
+        </div>
 
         <!--This will ask for initials to display in score board-->
         <div class="scoreScreen hide">
             <h1>All done!</h1>
-            <p>Your score was: 12</p>
+            <p>Your score was: <span id="scoreTrack"></span></p>
             <form id="scoreSubmit" method="POST">
                 <label for="name">Enter your initials:</label>
                 <input type="text" placeholder="Initials" name="name" id="name">
@@ -85,6 +125,7 @@
         </div>
 
     </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

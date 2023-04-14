@@ -9,13 +9,18 @@ var timerCount = 120;
 var startButton = document.querySelector(".startButton");
 var viewScores = document.querySelector(".viewScores");
 var backButton = document.querySelector(".backButton");
-var choiceButton = document.querySelector(".choiceButton");
+var choiceButton = document.querySelectorAll(".choiceButton");
+var correctAnswer = $('.answerCorrect');
+var wrongAnswer = $('.answerWrong');
 
 
 //screen selectors
 var startScreen = document.querySelector(".startScreen");
+var quizScreen = document.querySelector(".allQuestions");
 var questionScreen1 = document.querySelector(".questionScreen1");
 var questionScreen2 = document.querySelector(".questionScreen2");
+var questionScreen3 = document.querySelector(".questionScreen3");
+var questionScreen4 = document.querySelector(".questionScreen4");
 
 var scoreScreen = document.querySelector(".scoreScreen");
 var scoreBoardScreen = document.querySelector(".scoreBoardScreen");
@@ -25,13 +30,17 @@ var viewHighscores = true;
 var scoreSubmit = document.querySelector("#scoreSubmit");
 var highscores = document.querySelector("#highscores");
 var nameInput = document.querySelector("#name");
+var scoreTrack = document.querySelector("#scoreTrack");
 let names = [];
+let scores = [];
 var score = 0;
 
 //quiz
 var question = document.querySelector(".question");
 var answerCorrect = document.querySelector("#answerCorrect");
 var answerWrong = document.querySelector("#answerWrong");
+var wrongDisplay = document.querySelector("#wrong");
+var quizCount = 0;
 
 
 //Functions
@@ -44,7 +53,7 @@ function startQuiz() {
     startScreen.setAttribute("class", "hide");
     //Starts timer
     //starts questions
-    questionScreen1.setAttribute("class","showIndented");
+    quiz();
     startTimer();
 }
 
@@ -55,8 +64,9 @@ function startTimer() {
       timerCount--;
       timerElement.textContent = timerCount;
       // Tests if time has run out
-      if (timerCount == 0) {
+      if (timerCount <= 0) {
         // Clears interval
+        quiz();
         clearInterval(timer);
         endQuiz();
         timerCount = 120;
@@ -64,17 +74,11 @@ function startTimer() {
     }, 1000);
 }
 
-//quiz
-function quiz (event) {
-score++;
-questionScreen1.setAttribute("class", "hide");
-questionScreen2.setAttribute("class", "showIndented");
-}
-
 //This function ends the quiz
 function endQuiz() {
-    questionScreen1.setAttribute("class","hide");
-    questionScreen2.setAttribute("class","hide");
+    quizCount = 0;
+    quizScreen.setAttribute("class", "hide");
+    scoreTrack.textContent = score;
     scoreScreen.setAttribute("class","showCenter");
 }
 
@@ -87,7 +91,9 @@ function submitQuiz(event) {
         return;
     }
     names.push(userInput);
+    scores.push(score);
     localStorage.setItem("names", JSON.stringify(names));
+    localStorage.setItem("scores", JSON.stringify(scores));
     scoreScreen.setAttribute("class","hide");
     addScore();
     nameInput.value="";
@@ -109,8 +115,9 @@ function renderScores() {
 
     for (var i = 0; i < names.length; i++) {
         var nameList = names[i];
+        var scoreList = scores[i];
         var li = document.createElement("li");
-        li.textContent = nameList + " - " + score;
+        li.textContent = nameList + " - " + scoreList;
         li.setAttribute("data-index", i);
         highscores.appendChild(li);
       }
@@ -118,9 +125,11 @@ function renderScores() {
 
 //This function retrieves the scores from local storage
 function init() {
-    var scoreBoard = JSON.parse(localStorage.getItem("names"));
-    if (scoreBoard !== null) {
-      names = scoreBoard;
+    var scoreBoardNames = JSON.parse(localStorage.getItem("names"));
+    var scoreBoardScores = JSON.parse(localStorage.getItem("scores"));
+    if (scoreBoardNames&&scoreBoardScores !== null) {
+      names = scoreBoardNames;
+      scores = scoreBoardScores;
     }
     renderScores();
 }
@@ -147,13 +156,65 @@ function viewScoreBoard (event) {
 
 //Starts quiz
 startButton.addEventListener("click", startQuiz);
+
 //Views the scoreboard
 viewScores.addEventListener("click", viewScoreBoard);
+
 //Goes back to start screen
 backButton.addEventListener("click", goBack);
+
 //Submits initials to scoreboard
 scoreSubmit.addEventListener("submit", submitQuiz);
-//Selects answer
-choiceButton.addEventListener("click", quiz);
+
+
+let test = [1,2,3,4,5,6,7,8,9,10];
+let testAnswers = {
+    correct: answerCorrect,
+    wrong: answerWrong
+};
+
+//Selects answer and keeps score
+for (let i = 0; i < choiceButton.length; i++) {
+    choiceButton[i].addEventListener("click", function () {
+
+        if (choiceButton[i].classList.contains("answerCorrect")) {
+            score++;
+            quizCount++;
+        }
+        if (choiceButton[i].classList.contains("answerWrong")) {
+            quizCount++;
+            timerCount = timerCount - 30;
+        }
+        console.log(test[i]);
+});
+    choiceButton[i].addEventListener("click", quiz);
+}
+
+function quiz() {
+    if (timerCount > 0) {
+        quizScreen.setAttribute("class", "showIndented");
+        if (quizCount == 0) {
+            questionScreen1.setAttribute("class", "showIndented");
+        }
+        if (quizCount == 1) {
+            questionScreen1.setAttribute("class", "hide");
+            questionScreen2.setAttribute("class", "showIndented");
+        }
+        if (quizCount == 2) {
+            questionScreen2.setAttribute("class", "hide");
+            questionScreen3.setAttribute("class", "showIndented");
+        }
+        if (quizCount == 3) {
+            questionScreen3.setAttribute("class", "hide");
+            questionScreen4.setAttribute("class", "showIndented");
+        }
+        if (quizCount == 4) {
+            endQuiz();
+        }
+    } 
+    else {
+        quizScreen.setAttribute("class", "hide");
+    }
+}
 
 init();
